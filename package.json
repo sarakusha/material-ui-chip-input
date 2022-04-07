@@ -1,11 +1,11 @@
 {
-  "name": "material-ui-chip-input",
-  "version": "1.1.0",
+  "name": "@sarakusha/material-ui-chip-input",
+  "version": "2.0.0",
   "typings": "typings/index.d.ts",
-  "description": "A chip input field using Material-UI.",
+  "description": "A chip input field using @mui/material.",
   "main": "lib/ChipInput.js",
   "files": [
-    "lib/**/*.js",
+    "lib/ChipInput.js",
     "typings/*.d.ts",
     "README.md",
     "LICENSE",
@@ -47,30 +47,36 @@
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
-    "@material-ui/core": "^3.9.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.6.0",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/react": "^5.1.9",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "coveralls": "^3.0.2",
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-to-json": "^3.2.2",
     "gh-pages": "^1.2.0",
     "jest": "^24.1.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-test-renderer": "^16.2.0",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-test-renderer": "^17",
     "standard": "^13.1.0"
   },
   "peerDependencies": {
-    "@material-ui/core": "^1.0.0 || ^3.1.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.3",
+    "react": "^17",
+    "react-dom": "^17"
   },
   "dependencies": {
+    "autosuggest-highlight": "^3.2.1",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.1"
+    "prop-types": "^15.6.1",
+    "react-autosuggest": "^10.1.0"
   },
   "jest": {
     "setupFiles": [
@@ -90,5 +96,9 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
   }
 }

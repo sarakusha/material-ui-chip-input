@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import Autosuggest from 'react-autosuggest'
 import match from 'autosuggest-highlight/match'
 import parse from 'autosuggest-highlight/parse'
-import Paper from '@material-ui/core/Paper'
-import MenuItem from '@material-ui/core/MenuItem'
-import { withStyles } from '@material-ui/core/styles'
+import Paper from '@mui/material/Paper'
+import MenuItem from '@mui/material/MenuItem'
+import { withStyles } from '@mui/material/styles'
 import ChipInput from '../../src/ChipInput'
 
 const suggestions = [
