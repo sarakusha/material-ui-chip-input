@@ -1,6 +1,6 @@
 {
-  "name": "material-ui-chip-input",
-  "version": "1.1.0",
+  "name": "@sarakusha/material-ui-chip-input",
+  "version": "2.1.0",
   "typings": "typings/index.d.ts",
   "description": "A chip input field using Material-UI.",
   "main": "lib/ChipInput.js",
@@ -13,16 +13,15 @@
   ],
   "scripts": {
     "build": "babel src -d lib",
-    "test": "standard && jest",
+    "test": "pnpm run lint && jest",
     "test:coverage": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "test:unit": "jest",
-    "lint": "standard",
+    "lint": "eslint src stories --ext .js,.jsx",
+    "format": "prettier . --write",
     "prepublish": "babel src -d lib",
-    "prestorybook": "npm i react-autosuggest autosuggest-highlight",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook -c stories",
-    "storybook:install": "cd stories && npm install",
-    "deploy-storybook": "build-storybook -o storybook && gh-pages -d storybook && rm -r storybook"
+    "storybook": "pnpm run build && storybook dev -p 6006",
+    "storybook:build": "pnpm run build && storybook build",
+    "deploy-storybook": "pnpm run storybook:build && gh-pages -d storybook-static"
   },
   "repository": {
     "type": "git",
@@ -42,43 +41,50 @@
   },
   "homepage": "https://github.com/TeamWertarbyte/material-ui-chip-input#readme",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.3.0",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
-    "@material-ui/core": "^3.9.0",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/react": "^5.1.9",
-    "babel-eslint": "^10.0.2",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/plugin-transform-class-properties": "^7.27.1",
+    "@babel/preset-env": "^7.29.6",
+    "@babel/preset-react": "^7.28.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@eslint/js": "^10.0.1",
+    "@mui/material": "^9.0.1",
+    "@storybook/addon-actions": "^9.0.8",
+    "@storybook/react": "^10.4.1",
+    "@storybook/react-vite": "^10.4.1",
+    "autosuggest-highlight": "^3.3.4",
     "babel-loader": "^8.0.6",
     "coveralls": "^3.0.2",
-    "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.6.0",
-    "enzyme-to-json": "^3.2.2",
+    "eslint": "^10.4.0",
+    "eslint-config-prettier": "^10.1.8",
     "gh-pages": "^1.2.0",
-    "jest": "^24.1.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-test-renderer": "^16.2.0",
-    "standard": "^13.1.0"
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "prettier": "^3.8.3",
+    "react": "^19.2.6",
+    "react-autosuggest": "^10.1.0",
+    "react-dom": "^19.2.6",
+    "storybook": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "globals": "^17.6.0"
   },
   "peerDependencies": {
-    "@material-ui/core": "^1.0.0 || ^3.1.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0"
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@mui/material": "^9.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.1"
   },
   "jest": {
-    "setupFiles": [
-      "./test/shim.js",
-      "./test/jestsetup.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom"
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/test"
@@ -88,7 +94,5 @@
       "test"
     ]
   },
-  "standard": {
-    "parser": "babel-eslint"
-  }
+  "packageManager": "pnpm@11.2.2"
 }
